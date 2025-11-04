@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, PlayCircle } from "lucide-react";
-import heroImage from "@/assets/hero-image.png";
+import heroImage from "@/assets/image 1.png";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center text-white pt-16 relative overflow-hidden">
+    <section id="home" className="h-screen flex items-center text-white pt-16 relative overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img

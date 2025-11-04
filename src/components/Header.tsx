@@ -3,12 +3,18 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Menu, X, LogIn } from "lucide-react";
+import { Menu, X, LogIn, Moon, Sun } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle('dark');
+  };
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -19,12 +25,24 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Smart Cooperative Hub" className="h-16 w-16 md:h-20 md:w-20 rounded-lg shadow-lg" />
-            <span className="text-xl md:text-2xl font-bold text-primary">Smart Cooperative Hub</span>
+            <img src={logo} alt="Smart Cooperative Hub" className="h-8 w-8 rounded-lg shadow-lg" />
+            <span className="text-xl md:text-2xl font-bold text-foreground">Smart Cooperative Hub</span>
+          </div>
+
+          {/* Dark Mode Toggle for Mobile */}
+          <div className="md:hidden flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleDarkMode}
+              className="gap-2"
+            >
+              {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </Button>
           </div>
 
           {/* Desktop Navigation */}
@@ -44,6 +62,14 @@ const Header = () => {
             <button onClick={() => scrollToSection("contact")} className="text-foreground hover:text-primary transition-colors">
               Contact
             </button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleDarkMode}
+              className="gap-2"
+            >
+              {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </Button>
             <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
               <DialogTrigger asChild>
                 <Button variant="outline" className="gap-2">
@@ -88,7 +114,7 @@ const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? <X className="h-6 w-6 text-foreground" /> : <Menu className="h-6 w-6 text-foreground" />}
           </button>
         </div>
 
@@ -110,6 +136,15 @@ const Header = () => {
             <button onClick={() => scrollToSection("contact")} className="block w-full text-left text-foreground hover:text-primary transition-colors">
               Contact
             </button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleDarkMode}
+              className="w-full gap-2 justify-start"
+            >
+              {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+            </Button>
             <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
               <DialogTrigger asChild>
                 <Button variant="outline" className="w-full gap-2">
