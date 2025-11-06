@@ -9,14 +9,23 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
+    // apply responsive left padding to the main content only; keep Footer and Hero full-width
     <div className="min-h-screen">
-      <Header />
+      <div className="pl-6 md:pl-12 lg:pl-24">
+        <Header />
+      </div>
+
+      {/* Hero should be full-width (no left padding) */}
       <Hero />
-      <About />
-      <Features />
-      <Services />
-      <HowItWorks />
-      <Contact />
+
+      <div className="pl-6 md:pl-12 lg:pl-24 pr-6 md:pr-12 lg:pr-24">
+        <About />
+        <Features />
+        <Services />
+        <HowItWorks />
+        <Contact />
+      </div>
+
       <Footer />
     </div>
   );

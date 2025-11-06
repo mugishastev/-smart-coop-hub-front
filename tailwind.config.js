@@ -15,6 +15,31 @@ export default {
     },
     extend: {
       colors: {
+        // logo/brand color scales (added)
+        blue: {
+          50:  '#e0f4fb',
+          100: '#b3e0f4',
+          200: '#80ccef',
+          300: '#4db8ea',
+          400: '#1aa3e5',
+          500: '#0077B6', // base color
+          600: '#00629a',
+          700: '#004d7d',
+          800: '#003960',
+          900: '#002443',
+        },
+        green: {
+          50:  '#e3f9ec',
+          100: '#b8eccd',
+          200: '#8cdcad',
+          300: '#60cd8d',
+          400: '#34bd6d',
+          500: '#00B050', // base color
+          600: '#009344',
+          700: '#007638',
+          800: '#00592c',
+          900: '#003c20',
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

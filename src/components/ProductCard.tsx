@@ -1,10 +1,18 @@
 import React from 'react'
-import { Card, CardContent, CardFooter } from "../ui/card"
-import { Button } from "../ui/button"
-import { Product } from '../../pages/Marketplace'
-import { Badge } from "../ui/badge"
-import { motion } from "framer-motion"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+// framer-motion removed to avoid adding dependency; use plain div for simple animation
 import { ShoppingCart, Eye } from "lucide-react"
+
+// Minimal local Product type (keeps this component standalone)
+interface Product {
+  title: string
+  image?: string
+  price: number
+  description?: string
+  cooperative?: string
+}
 
 interface ProductCardProps {
   product: Product
@@ -14,11 +22,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onView, onAddToCart }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-    >
+    <div className="transition-transform duration-300 opacity-100 translate-y-0">
       <Card className="group overflow-hidden rounded-xl bg-gradient-to-br from-white/70 to-green-50/80 backdrop-blur-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-green-100 hover:border-green-300 hover:scale-[1.01] max-w-sm mx-auto">
         <div className="relative overflow-hidden h-52">
           <img
@@ -54,7 +58,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onView, onAddToCart 
           <div className="mb-1">
             <Badge
               variant="outline"
-              className="text-[10px] font-semibold bg-gradient-to-r from-green-600 to-teal-500 text-white border-none shadow-sm px-2 py-0.5"
+              className="text-[10px] font-semibold bg-gradient-to-r from-green-500 to-teal-500 text-white border-none shadow-sm px-2 py-0.5"
             >
               {product.cooperative}
             </Badge>
@@ -68,7 +72,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onView, onAddToCart 
             {product.description}
           </p>
 
-          <p className="text-lg font-bold bg-gradient-to-r from-green-600 to-teal-500 bg-clip-text text-transparent">
+          <p className="text-lg font-bold bg-gradient-to-r from-green-500 to-teal-500 bg-clip-text text-transparent">
             ${product.price.toFixed(2)}
           </p>
         </CardContent>
@@ -82,7 +86,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onView, onAddToCart 
           </div>
         </CardFooter>
       </Card>
-    </motion.div>
+  </div>
   )
 }
 
