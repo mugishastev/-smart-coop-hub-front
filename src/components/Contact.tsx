@@ -11,84 +11,84 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-            Get In Touch
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have questions? We're here to help. Reach out to us and we'll respond as soon as possible.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-900">
+              Get In Touch
+            </h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Have questions? We're here to help. Reach out to us and we'll respond as soon as possible.
+            </p>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <Card>
-            <CardContent className="pt-6 text-center space-y-2">
-              <div className="inline-flex h-12 w-12 rounded-full bg-primary/10 items-center justify-center mb-2">
-                <Mail className="h-6 w-6 text-primary" />
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="inline-flex h-12 w-12 rounded-full bg-blue-900 items-center justify-center flex-shrink-0">
+                  <Mail className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-blue-900 mb-1">Email</h3>
+                  <p className="text-gray-600">info@smartcoophub.rw</p>
+                </div>
               </div>
-              <h3 className="font-semibold text-foreground">Email</h3>
-              <p className="text-muted-foreground">info@smartcoophub.rw</p>
-            </CardContent>
-          </Card>
 
-          <Card>
-            <CardContent className="pt-6 text-center space-y-2">
-              <div className="inline-flex h-12 w-12 rounded-full bg-primary/10 items-center justify-center mb-2">
-                <Phone className="h-6 w-6 text-primary" />
+              <div className="flex items-start gap-4">
+                <div className="inline-flex h-12 w-12 rounded-full bg-blue-900 items-center justify-center flex-shrink-0">
+                  <Phone className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-blue-900 mb-1">Phone</h3>
+                  <p className="text-gray-600">+250 XXX XXX XXX</p>
+                </div>
               </div>
-              <h3 className="font-semibold text-foreground">Phone</h3>
-              <p className="text-muted-foreground">+250 XXX XXX XXX</p>
-            </CardContent>
-          </Card>
 
-          <Card>
-            <CardContent className="pt-6 text-center space-y-2">
-              <div className="inline-flex h-12 w-12 rounded-full bg-primary/10 items-center justify-center mb-2">
-                <MapPin className="h-6 w-6 text-primary" />
+              <div className="flex items-start gap-4">
+                <div className="inline-flex h-12 w-12 rounded-full bg-blue-900 items-center justify-center flex-shrink-0">
+                  <MapPin className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-blue-900 mb-1">Location</h3>
+                  <p className="text-gray-600">Kigali, Rwanda</p>
+                </div>
               </div>
-              <h3 className="font-semibold text-foreground">Location</h3>
-              <p className="text-muted-foreground">Kigali, Rwanda</p>
-            </CardContent>
-          </Card>
-        </div>
+            </div>
+          </div>
 
-        <Card className="max-w-2xl mx-auto mt-12">
-          <CardContent className="pt-6">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
+          <Card className="bg-white">
+            <CardContent className="pt-6">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-foreground">
+                  <label htmlFor="name" className="text-sm font-medium text-blue-900">
                     Name
                   </label>
                   <Input id="name" placeholder="Your name" required />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-foreground">
+                  <label htmlFor="email" className="text-sm font-medium text-blue-900">
                     Email
                   </label>
                   <Input id="email" type="email" placeholder="your@email.com" required />
                 </div>
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="subject" className="text-sm font-medium text-foreground">
-                  Subject
-                </label>
-                <Input id="subject" placeholder="How can we help?" required />
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-foreground">
-                  Message
-                </label>
-                <Textarea id="message" placeholder="Your message..." rows={5} required />
-              </div>
-              <Button type="submit" className="w-full" size="lg">
-                Send Message
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-sm font-medium text-blue-900">
+                    Subject
+                  </label>
+                  <Input id="subject" placeholder="How can we help?" required />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium text-blue-900">
+                    Message
+                  </label>
+                  <Textarea id="message" placeholder="Your message..." rows={4} required />
+                </div>
+                <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white">
+                  Send Message
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );

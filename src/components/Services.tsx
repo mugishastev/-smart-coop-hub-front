@@ -1,4 +1,5 @@
 import { Building2, ShoppingCart, Wallet, FileText } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const Services = () => {
   const services = [
@@ -25,28 +26,30 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-background">
+    <section id="services" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-900">
             Our Services
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Comprehensive solutions designed to meet the unique needs of Rwandan cooperatives.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div key={index} className="text-center space-y-4">
-                <div className="inline-flex h-16 w-16 rounded-full bg-primary/10 items-center justify-center">
-                  <Icon className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
-              </div>
+              <Card key={index} className="bg-white hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6 text-center space-y-4">
+                  <div className="inline-flex h-16 w-16 rounded-full bg-blue-900 items-center justify-center">
+                    <Icon className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-800">{service.title}</h3>
+                  <p className="text-gray-600">{service.description}</p>
+                </CardContent>
+              </Card>
             );
           })}
         </div>

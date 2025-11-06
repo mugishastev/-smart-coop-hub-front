@@ -1,11 +1,6 @@
-# TODO List for Logo Update and Hero Animation Enhancement
+# TODO: Update Color Scheme and Hero Icons
 
 ## Tasks
-- [x] Update Header.tsx to use scohub.png logo
-- [x] Update Footer.tsx to use scohub.png logo
-- [x] Update Hero.tsx: Add scohub.png logo and enhance animations
-- [x] Run development server to verify changes
-- [ ] Test animations and responsiveness
-
-## Progress
-- Completed: Logo updates, hero enhancements, and dev server running at http://localhost:8083/
+- [x] Update Hero.tsx to change feature dots from white to green
+- [x] Modify index.css color variables for detailed green-blue palette
+- [x] Test visual changes in browser and verify contrast

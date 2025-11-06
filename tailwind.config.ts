@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
@@ -13,6 +12,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['"Elms Sans"', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -176,6 +178,20 @@ export default {
             transform: "translateY(-10px)",
           },
         },
+        "dark-mode-transition": {
+          "0%": {
+            opacity: "0.8",
+            transform: "scale(0.98)",
+          },
+          "50%": {
+            opacity: "0.9",
+            transform: "scale(1.02)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -193,6 +209,7 @@ export default {
         "bounce-slow-delay-2": "bounce-slow-delay-2 6s ease-in-out infinite 2s",
         "bounce-slow-delay-3": "bounce-slow-delay-3 7s ease-in-out infinite 3s",
         "gradient-shift": "gradient-shift 8s ease-in-out infinite",
+        "dark-mode-transition": "dark-mode-transition 1s ease-in-out",
       },
     },
   },
